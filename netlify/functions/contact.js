@@ -1,10 +1,26 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
+  // Handle CORS preflight requests
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS'
+      },
+      body: ''
+    };
+  }
+
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
@@ -16,35 +32,51 @@ exports.handler = async (event, context) => {
     if (!name || !email || !message) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Missing required fields' })
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ error: 'Please provide all required fields' })
       };
     }
 
-    // Create transporter (you'll need to set up environment variables)
+    // Create transporter using the same credentials as server.js
     const transporter = nodemailer.createTransporter({
-      service: 'gmail', // or your email service
+      service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        user: 'contact.ragogekanz@gmail.com',
+        pass: 'irbp fzgl jvys vxgr'
       }
     });
 
-    // Email content
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: 'contact@ragogekanz.org',
+    // Email to organization (same as server.js)
+    await transporter.sendMail({
+      from: 'contact.ragogekanz@gmail.com',
+      to: 'jacerk15@gmail.com',
       subject: `New Contact Form Submission from ${name}`,
       html: `
-        <h2>New Contact Form Submission</h2>
+        <h3>New Contact Form Submission</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `
-    };
+    });
 
-    // Send email
-    await transporter.sendMail(mailOptions);
+    // Thank you email to user (same as server.js)
+    await transporter.sendMail({
+      from: 'contact.ragogekanz@gmail.com',
+      to: email,
+      subject: 'Thank you for contacting Ragoge El Kanz',
+      html: `
+        <h3>Thank you for reaching out to Ragoge El Kanz</h3>
+        <p>Dear ${name},</p>
+        <p>We have received your message and will get back to you as soon as possible.</p>
+        <p>Thank you for your interest in our clean water initiatives in Tunisia.</p>
+        <br>
+        <p>Best regards,</p>
+        <p>The Ragoge El Kanz Team</p>
+      `
+    });
 
     return {
       statusCode: 200,
