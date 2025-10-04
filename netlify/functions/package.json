@@ -1,0 +1,9 @@
+{
+  "name": "netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions for Ragoge El Kanz website",
+  "main": "index.js",
+  "dependencies": {
+    "nodemailer": "^7.0.6"
+  }
+}
