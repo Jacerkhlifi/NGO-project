@@ -194,7 +194,7 @@ function App() {
           right: 0, 
           bottom: 0, 
           background: 'linear-gradient(to right, rgba(37, 99, 235, 0.7), rgba(8, 145, 178, 0.7))',
-          backgroundImage: 'url("/images/jougar3.jpg")',
+          backgroundImage: 'url("/images/help.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           backgroundBlendMode: 'overlay',
