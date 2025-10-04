@@ -1,6 +1,9 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
+  console.log('Contact function called with method:', event.httpMethod);
+  console.log('Event body:', event.body);
+
   // Handle CORS preflight requests
   if (event.httpMethod === 'OPTIONS') {
     return {
@@ -101,7 +104,8 @@ exports.handler = async (event, context) => {
         'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify({ 
-        error: 'Failed to send email' 
+        error: 'Failed to send email',
+        details: error.message
       })
     };
   }
