@@ -1,4 +1,3 @@
-import nodemailer from 'nodemailer';
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
