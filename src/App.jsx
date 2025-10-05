@@ -261,7 +261,7 @@ function App() {
               <div className="relative">
                 <img 
                   src="/images/mission.jpg" 
-                  alt="Accès à l'eau propre en Tunisie" 
+                  alt="Access to clean water in Tunisia" 
                   className="rounded-2xl shadow-2xl w-full h-96 object-cover"
                 />
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
@@ -364,9 +364,9 @@ function App() {
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4" style={{fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1rem'}}>Impact Social</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4" style={{fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1rem'}}>Social Impact</h3>
               <p className="text-gray-600" style={{color: '#4b5563'}}>
-                Amélioration de la santé publique et réduction des maladies liées à l'eau dans les communautés tunisiennes.
+                Improvement of public health and reduction of water-related diseases in Tunisian communities.
               </p>
             </div>
 
@@ -378,7 +378,7 @@ function App() {
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-4" style={{fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1rem'}}>Innovation</h3>
               <p className="text-gray-600" style={{color: '#4b5563'}}>
-                Développement de technologies innovantes pour le traitement et la distribution de l'eau potable.
+                Development of innovative technologies for the treatment and distribution of drinking water.
               </p>
             </div>
 
@@ -388,9 +388,9 @@ function App() {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4" style={{fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1rem'}}>Durabilité</h3>
+              <h3 className="text-xl font-bold text-gray-800 mb-4" style={{fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1rem'}}>Sustainability</h3>
               <p className="text-gray-600" style={{color: '#4b5563'}}>
-                Solutions durables qui préservent l'environnement et assurent la pérennité des ressources en eau.
+                Sustainable solutions that preserve the environment and ensure the sustainability of water resources.
               </p>
             </div>
           </div>
